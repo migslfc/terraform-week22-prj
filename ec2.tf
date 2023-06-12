@@ -6,7 +6,7 @@ module "ec2" {
   name                        = each.key
   ami                         = "ami-04a0ae173da5807d3"
   instance_type               = "t2.micro"
-  key_name                    = "my_KeyPair"
+  key_name                    = "myKeyPair"
   monitoring                  = true
   vpc_security_group_ids      = [aws_security_group.week22-sg.id]
   subnet_id                   = module.vpc.public_subnets[each.key == "apache1" ? 0 : 1]
